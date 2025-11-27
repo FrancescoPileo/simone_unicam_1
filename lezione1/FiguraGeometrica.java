@@ -1,11 +1,11 @@
-package simone_unicam_1.lezione1;
+package lezione1;
 
 public class FiguraGeometrica {
 
     private String nome;
     private int nLati;
     protected double area;
-    private String colore;
+    protected String colore;
 
     protected String ciao = "Ciao";
 
@@ -45,6 +45,11 @@ public class FiguraGeometrica {
 
     private int calcolaArea() {
         return 0;
+    }
+
+    @Override
+    public String toString() {
+        return "FiguraGeometrica [nome=" + nome + ", nLati=" + nLati + ", area=" + area + ", colore=" + colore + "]";
     }
       
 

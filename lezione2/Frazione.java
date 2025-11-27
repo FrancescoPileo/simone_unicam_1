@@ -1,4 +1,4 @@
-package simone_unicam_1.lezione2;
+package lezione2;
 
 public class Frazione {
     private int numeratore;
@@ -21,4 +21,29 @@ public class Frazione {
         int nuovoDenominatore = this.denominatore * f2.denominatore;
         return new Frazione(nuovoNumeratore, nuovoDenominatore);
     }
+
+    public int compara(Frazione f2){
+        if ((float)this.numeratore/this.denominatore > (float)f2.numeratore/f2.denominatore){
+            return 1;
+        } else if ((float)this.numeratore/this.denominatore < (float)f2.numeratore/f2.denominatore){
+            return -1;
+        } else {
+            return 0;
+        }
+    }
+
+    private int mcd(int a, int b) {
+        if (b == 0) {
+            return a;
+        }
+        return mcd(b, a % b);
+    }
+
+    public void semplifica() {
+        int mcd = mcd(this.numeratore, this.denominatore);
+        numeratore = numeratore / mcd;
+        denominatore = denominatore / mcd;
+    }
+
+
 }

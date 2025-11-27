@@ -1,14 +1,18 @@
-package simone_unicam_1.lezione2;
+package lezione2;
 
 public class Recipiente {
 
-    private int volume;
-    private int contenuto;
-    private String stato; // "aperto" o "chiuso"
+    protected int volume;
+    protected int contenuto;
 
-    public Recipiente(int quantita) {
-        this.volume = quantita;
+    public Recipiente(int volume) {
+        this.volume = volume;
         this.contenuto = 0;
+    }
+
+    public Recipiente(int volume, int contenuto) {
+        this.volume = volume;
+        this.contenuto = Math.min(volume, Math.max(0, contenuto));
     }
 
     public int getVolume() {
@@ -24,23 +28,11 @@ public class Recipiente {
     }
 
     public void aggiungi(int quantita) {
-        if (stato.equals("aperto")) {
-            contenuto = Math.min(volume, contenuto + quantita);
-        }   
+        contenuto = Math.min(volume, contenuto + quantita);
     }
 
     public void rimuovi(int quantita) {
-        if (stato.equals("aperto")) {
-            contenuto = Math.max(0, contenuto - quantita);
-        }
-    }
-
-    public void apri() {
-        stato = "aperto";
-    }
-
-    public void chiudi() {
-        stato = "chiuso";
+        contenuto = Math.max(0, contenuto - quantita);
     }
 
     @Override
@@ -53,18 +45,21 @@ public class Recipiente {
         }
         Recipiente other = (Recipiente) obj;
         return volume == other.volume &&
-               contenuto == other.contenuto &&
-               stato.equals(other.stato);
+               contenuto == other.contenuto;
     }
 
     @Override
     public String toString() {
-        return "Recipiente [id = "+ Integer.toHexString(System.identityHashCode(this)) + ", volume=" + volume + ", contenuto=" + contenuto + ", stato=" + stato + "]";
+        return "Recipiente [id = "+ Integer.toHexString(System.identityHashCode(this)) + ", volume=" + volume + ", contenuto=" + contenuto + "]";
     }
 
-    public void stampa() {
-        System.out.println(this.toString());
+    public void unisci(Recipiente r2) {
+        int spazioDisponibile = this.capacita();
+        int daTrasferire = Math.min(spazioDisponibile, r2.getContenuto());
+        this.aggiungi(daTrasferire);
+        r2.rimuovi(daTrasferire);
     }
 
+    
     
 }

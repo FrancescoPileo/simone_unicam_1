@@ -1,4 +1,4 @@
-package simone_unicam_1.lezione1;
+package lezione1;
 
 public class Quadrato extends FiguraGeometrica {
 

@@ -1,4 +1,4 @@
-package simone_unicam_1.lezione2;
+package lezione2;
 
 public class Primes {
 

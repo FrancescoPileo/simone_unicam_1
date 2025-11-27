@@ -1,4 +1,4 @@
-package simone_unicam_1.lezione1;
+package lezione1;
 
 public class Cerchio extends FiguraGeometrica {
 
@@ -29,6 +29,11 @@ public class Cerchio extends FiguraGeometrica {
 
     public static double calcolaArea(double raggio) {
         return 2 * PI_GRECO * raggio;
+    }
+
+    @Override
+    public String toString() {
+        return "Cerchio [raggio=" + raggio + ", area=" + area + ", colore=" + super.colore +"]";
     }
 
 
