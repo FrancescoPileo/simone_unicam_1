@@ -1,4 +1,4 @@
-package lezione1;
+package lezione1_4;
 
 public class TriangoloScaleno extends FiguraGeometrica {
 
@@ -9,7 +9,6 @@ public class TriangoloScaleno extends FiguraGeometrica {
     public TriangoloScaleno(int lati[]) {
         super("Triangolo Scaleno", 3);
         this.lati = lati.clone();
-        this.area = calcolaArea();
     }
 
     public int[] getLati() {
@@ -18,12 +17,12 @@ public class TriangoloScaleno extends FiguraGeometrica {
 
     public void setLati(int lati[]) {
         this.lati = lati.clone();
-        this.area = calcolaArea();
     }
 
-    private double calcolaArea() {
-        
-        return 6;
+    public double getArea() {
+        double s = (lati[0] + lati[1] + lati[2]) / 2.0;
+        return Math.sqrt(s * (s - lati[0]) * (s - lati[1]) * (s - lati[2]));
     }
-    
+
+ 
 }

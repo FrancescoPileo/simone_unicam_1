@@ -1,6 +1,6 @@
-package lezione1;
+package lezione1_4;
 
-public class Cerchio extends FiguraGeometrica {
+public class Cerchio extends FiguraGeometrica implements FiguraConRaggio {
 
     private double raggio;
     
@@ -11,7 +11,6 @@ public class Cerchio extends FiguraGeometrica {
     public Cerchio(double raggio) {
         super("Cerchio", 0);
         this.raggio = raggio;
-        this.area = calcolaArea();
     }
 
     public double getRaggio() {
@@ -20,10 +19,9 @@ public class Cerchio extends FiguraGeometrica {
 
     public void setRaggio(double raggio) {
         this.raggio = raggio;
-        this.area = calcolaArea();
     }
 
-    private double calcolaArea() {
+    public double getArea() {
         return PI_GRECO * this.raggio * this.raggio;
     }
 
@@ -33,7 +31,7 @@ public class Cerchio extends FiguraGeometrica {
 
     @Override
     public String toString() {
-        return "Cerchio [raggio=" + raggio + ", area=" + area + ", colore=" + super.colore +"]";
+        return "Cerchio [raggio=" + raggio + ", area=" + getArea() + ", colore=" + super.colore +"]";
     }
 
 

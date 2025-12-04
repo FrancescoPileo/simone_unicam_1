@@ -1,4 +1,4 @@
-package lezione1;
+package lezione1_4;
 
 public class Quadrato extends FiguraGeometrica {
 
@@ -9,7 +9,6 @@ public class Quadrato extends FiguraGeometrica {
     public Quadrato(int lato) {
         super("Quadrato", 4);
         this.lato = lato;
-        this.area = calcolaArea();
     }
 
     public int getLato() {
@@ -18,14 +17,9 @@ public class Quadrato extends FiguraGeometrica {
 
     public void setLato(int lato) {
         this.lato = lato;
-        this.area = calcolaArea();
     }
 
-    private double calcolaArea() {
-        return lato * lato;
-    }
-
-    public static double calcolaArea(int lato) {
+    public double getArea() {
         return lato * lato;
     }
 }

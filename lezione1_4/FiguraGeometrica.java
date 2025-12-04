@@ -1,10 +1,9 @@
-package lezione1;
+package lezione1_4;
 
-public class FiguraGeometrica {
+public abstract class FiguraGeometrica {
 
     private String nome;
     private int nLati;
-    protected double area;
     protected String colore;
 
     protected String ciao = "Ciao";
@@ -12,7 +11,6 @@ public class FiguraGeometrica {
     public FiguraGeometrica(String nome, int nLati) {
         this.nome = nome;
         this.nLati = nLati;
-        this.area = calcolaArea();
     }
 
     public String getNome() {
@@ -31,9 +29,7 @@ public class FiguraGeometrica {
         this.colore = colore;
     }
 
-    public double getArea() {
-        return area;
-    }
+    public abstract double getArea();
 
     public void setnLati(int lati) {
         this.nLati = lati;
@@ -43,13 +39,9 @@ public class FiguraGeometrica {
         this.nome = nome;
     }
 
-    private int calcolaArea() {
-        return 0;
-    }
-
     @Override
     public String toString() {
-        return "FiguraGeometrica [nome=" + nome + ", nLati=" + nLati + ", area=" + area + ", colore=" + colore + "]";
+        return "FiguraGeometrica [nome=" + nome + ", nLati=" + nLati + ", area=" + getArea() + ", colore=" + colore + "]";
     }
       
 

@@ -1,24 +1,44 @@
 package lezione2;
 
+import java.util.Scanner;
+
 public class main {
 
     public static void main(String[] args) {
         //es1();
-        es2();
+        //es2();
         //es4();
-        //es5();
+        es5();
 
     }
 
     static void es5() {
-        Frazione f1 = new Frazione(1, 3);
+        /*Frazione f1 = new Frazione(1, 3);
         Frazione f2 = new Frazione(1, 2);
         Frazione somma = f1.somma(f2);
         System.out.println(f1 + " + " + f2 + " = " + somma);
         System.out.println(f1 + " > " + f2 + " = " + f1.compara(f2));
         somma.semplifica();
-        System.out.println("Somma semplificata: " + somma);
-
+        System.out.println("Somma semplificata: " + somma);*/
+        Scanner scanner = new Scanner(System.in);
+        boolean validInput = false;
+        do {
+            System.out.println("Inserisci numeratore:");
+            int numeratore = scanner.nextInt();
+            System.out.println("Inserisci denominatore:");
+            int denominatore = scanner.nextInt();
+            try {
+                Frazione f1 = new Frazione(numeratore, denominatore);
+                System.out.println("Frazione creata: " + f1.valore());
+                validInput = true;
+             } catch (Exception e) {
+                System.out.println("Errore: " + e.getClass() + " - " + e.getMessage());
+                validInput = false;
+            }
+            finally {
+                System.out.println("Esecuzione del blocco finally.");
+            }
+        } while (!validInput);
     }
 
     static void es4() {

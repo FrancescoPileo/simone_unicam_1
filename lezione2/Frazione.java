@@ -4,7 +4,10 @@ public class Frazione {
     private int numeratore;
     private int denominatore;
 
-    public Frazione(int numeratore, int denominatore) {
+    public Frazione(int numeratore, int denominatore) throws IllegalArgumentException {
+        if (denominatore == 0) {
+            throw new IllegalArgumentException("Denominatore non può essere zero.");
+        }
         this.numeratore = numeratore;
         this.denominatore = denominatore;
     }
@@ -22,10 +25,17 @@ public class Frazione {
         return new Frazione(nuovoNumeratore, nuovoDenominatore);
     }
 
+    public double valore() throws ArithmeticException {
+        if (denominatore == 0) {
+            throw new ArithmeticException("Denominatore non può essere zero.");
+        }
+        return (double) this.numeratore / this.denominatore;
+    }
+
     public int compara(Frazione f2){
-        if ((float)this.numeratore/this.denominatore > (float)f2.numeratore/f2.denominatore){
+        if (this.valore() > f2.valore()){
             return 1;
-        } else if ((float)this.numeratore/this.denominatore < (float)f2.numeratore/f2.denominatore){
+        } else if (this.valore() < f2.valore()){
             return -1;
         } else {
             return 0;
