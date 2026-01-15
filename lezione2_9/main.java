@@ -1,4 +1,4 @@
-package lezione2;
+package lezione2_9;
 
 import java.util.Scanner;
 
@@ -8,7 +8,8 @@ public class main {
         //es1();
         //es2();
         //es4();
-        es5();
+        //es5();
+        es6();
 
     }
 
@@ -78,7 +79,47 @@ public class main {
         }
         System.out.println();
     }
+
+    static void es6() {
+        //i tipi primtivi sono passati per valore
+        int a = 5;
+        incrementa(a);
+        System.out.println("Valore di a dopo la chiamata a incrementa: " + a);
+
+        // gli array sono passati per riferimento
+        int arr[] = {1, 2, 3, 4, 5};
+        System.out.println("Array prima della chiamata a incrementaArray:");
+        stampaArray(arr);
+        incrementaArray(arr);
+        System.out.println("Array dopo la chiamata a incrementaArray:");
+        stampaArray(arr);
+
+        // gli oggetti sono passati per riferimento
+        Oggetto obj = new Oggetto(10);
+        System.out.println("Valore di obj.valore prima della chiamata a incrementa: " + obj.valore);
+        incrementa(obj);
+        System.out.println("Valore di obj.valore dopo la chiamata a incrementa: " + obj.valore);
+
+    }
+
+    static void incrementa(Integer a) {
+        a = a + 1;
+    }
+
+    static void incrementaArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            array[i] = array[i] + 1;
+        }
+    }
+
+    static void stampaArray(int[] array) {
+        for (int i = 0; i < array.length; i++) {
+            System.out.println(array[i]);
+        }
+    }
+
+    static void incrementa(Oggetto obj) {
+        obj.valore = obj.valore + 1;
+    }
     
 }
-
-

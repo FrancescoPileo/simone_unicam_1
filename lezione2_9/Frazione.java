@@ -1,4 +1,4 @@
-package lezione2;
+package lezione2_9;
 
 public class Frazione {
     private int numeratore;
@@ -11,12 +11,6 @@ public class Frazione {
         this.numeratore = numeratore;
         this.denominatore = denominatore;
     }
-
-    @Override
-    public String toString() {
-        return numeratore + "/" + denominatore;
-    }
-    
 
     // 1/2 + 1/3 = (1*3 + 1*2) / (2*3) = 5/6
     public Frazione somma(Frazione f2) {
@@ -53,6 +47,13 @@ public class Frazione {
         int mcd = mcd(this.numeratore, this.denominatore);
         numeratore = numeratore / mcd;
         denominatore = denominatore / mcd;
+    }
+
+    public String toString() {
+        if (this.denominatore == 1){
+            return Integer.toString(this.numeratore);
+        }
+        return this.numeratore + "/" + this.denominatore;
     }
 
 
