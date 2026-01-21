@@ -46,6 +46,7 @@ public class Recipiente {
             return false;
         }
         Recipiente other = (Recipiente) obj;
+        // return hashCode() == other.hashCode();
         return volume == other.volume &&
                contenuto == other.contenuto;
     }

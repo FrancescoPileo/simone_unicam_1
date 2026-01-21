@@ -71,6 +71,7 @@ public class RecipienteConTappo extends Recipiente {
             return false;
         }
         RecipienteConTappo other = (RecipienteConTappo) obj;
+        // return hashCode() == other.hashCode();
         return volume == other.volume &&
                contenuto == other.contenuto &&
                aperto == other.aperto;
