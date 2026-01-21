@@ -1,5 +1,7 @@
 package lezione2_9;
 
+import java.util.Objects;
+
 public class RecipienteConTappo extends Recipiente {
 
     private boolean aperto;
@@ -77,6 +79,11 @@ public class RecipienteConTappo extends Recipiente {
     @Override
     public String toString() {
         return "RecipienteConTappo [id = "+ Integer.toHexString(System.identityHashCode(this)) + ", volume=" + volume + ", contenuto=" + contenuto + ", aperto=" + aperto + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(volume, contenuto, aperto);
     }
 
 }

@@ -1,5 +1,7 @@
 package lezione2_9;
 
+import java.util.Objects;
+
 public class Recipiente {
 
     protected int volume;
@@ -51,6 +53,11 @@ public class Recipiente {
     @Override
     public String toString() {
         return "Recipiente [id = "+ Integer.toHexString(System.identityHashCode(this)) + ", volume=" + volume + ", contenuto=" + contenuto + "]";
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(volume, contenuto);
     }
 
     public void unisci(Recipiente r2) {
