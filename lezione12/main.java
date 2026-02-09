@@ -70,12 +70,28 @@ public class main {
         return n * fattoriale(n - 1);
     }
 
+    // sommatoria(10)
+
     public static int sommatoria(int n){
         if (n == 0){
             return 0;
         }
         return n + sommatoria(n - 1);
     }
+
+    // funzione che calcola a^n
+    double f(double a, int n){
+        if (n == 0){
+            return 1;
+        } else if (n % 2 == 0){
+            double x = f(a, n / 2);
+            return x * x;
+        } else {
+            return a * f(a, n - 1);
+        }
+    }
+
+    //f(10, 10)
 
 
 
