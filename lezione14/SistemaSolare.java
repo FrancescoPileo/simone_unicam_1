@@ -14,7 +14,7 @@ public class SistemaSolare {
     }
 
     public boolean nuovo(Pianeta p){
-        if (this.numero >= this.pianeti.length){
+        if (p == null || this.numero >= this.pianeti.length){
             return false;
         }
         int i = 0;
