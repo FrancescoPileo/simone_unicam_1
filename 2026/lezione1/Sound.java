@@ -1,4 +1,4 @@
-package esame;
+package 2026.lezione1;
 
 public class Sound {
     
