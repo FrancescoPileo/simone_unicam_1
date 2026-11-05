@@ -87,7 +87,6 @@ public class Coda {
     public Visita estrazione(){
         if(this.prenotazioni == 0 ){
             return null;
-
         }
         Visita v = this.coda[0];
 
