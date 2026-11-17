@@ -55,16 +55,13 @@ public class Cartella {
      *    a qualsiasi livello di profondità.
      */
     public double dimensioneTotale(){
-        if (this.elements == 0) {
-            return this.dimensionePropria;
-        }
+        double totale = this.dimensionePropria;
 
-        double dimensioneSottocartelle = 0;
         for (int i = 0; i < this.elements; i++){
-            dimensioneSottocartelle += this.sottocartelle[i].dimensioneTotale();
+            totale += this.sottocartelle[i].dimensioneTotale();
         }
 
-        return this.dimensionePropria + dimensioneSottocartelle;
+        return totale;
     }
 
     /**
@@ -73,16 +70,13 @@ public class Cartella {
      *    nell'intera gerarchia a partire dalla cartella corrente (inclusa se stessa).
      */
     public int contaCartelleTotali() {
-        if (this.elements == 0) {
-            return 1;
-        }
+        int totale = 1;
 
-        int numeroSottocartelle = 0;
         for (int i = 0; i < this.elements; i++){
-            numeroSottocartelle += this.sottocartelle[i].contaCartelleTotali();
+            totale += this.sottocartelle[i].contaCartelleTotali();
         }
 
-        return 1 + numeroSottocartelle;
+        return totale;
 
     }
 
